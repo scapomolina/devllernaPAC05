@@ -49,6 +49,7 @@ public class Usuario {
         /* Regex DNI format : first 8 digits should be a number between 0 and 9 :[0-9]{8}
         then the last char should be an upperCase char from A to Z alphabet --> [A-Z]*/
         Pattern dniFormatPattern = Pattern.compile("[0-9]{8}[A-Z]");
+
         // Check  whether the dni string matches with the Regex DNI format.
         Matcher isCorrectFormat = dniFormatPattern.matcher(dni);
         return isCorrectFormat.matches();
