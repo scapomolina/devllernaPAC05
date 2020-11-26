@@ -9,14 +9,16 @@ public class Cuenta {
     private Usuario usuario;
     private List<Gasto> gastos;
     private List<Ingreso> ingresos;
+    private int index = 0;
 
     // Constructor with parameter
     public Cuenta(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     // Getters methods:
     public double getSaldo() {
-        return saldo;
+        return this.saldo;
     }
 
     public Usuario getUsuario() {
@@ -31,12 +33,14 @@ public class Cuenta {
         this.usuario = usuario;
     }
 
-    public double addGastos(String description, double cantidad) throws GastoException {
+    public double addGastos(String description, double cantidad){
         try {
             if (cantidad > getSaldo()) {
-                throw new GastoException("Saldo insuficiente.");
+                throw  new GastoException("Saldo insuficiente.");
             } else {
+                gastos.add(new Gasto(cantidad, description));
                 this.saldo = getSaldo() - cantidad;
+                System.out.println("Saldo restante: "+ getSaldo());
             }
         } catch (GastoException ignored) {
 
@@ -45,7 +49,11 @@ public class Cuenta {
     }
 
     public double addIngresos(String description, double cantidad) {
-        return this.saldo = this.getSaldo() + cantidad;
+        Ingreso ingreso = new Ingreso(cantidad, description);
+        this.ingresos.add(index, ingreso);
+        this.saldo = this.getSaldo() + cantidad;
+        this.index= this.index +1;
+        return this.saldo;
     }
 
     public List<Gasto> getGastos() {

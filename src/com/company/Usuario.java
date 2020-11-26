@@ -52,7 +52,12 @@ public class Usuario {
 
         // Check  whether the dni string matches with the Regex DNI format.
         Matcher isCorrectFormat = dniFormatPattern.matcher(dni);
-        return isCorrectFormat.matches();
+        if (isCorrectFormat.matches()) {
+            this.DNI = dni;
+            return isCorrectFormat.matches();
+        } else {
+            return isCorrectFormat.matches();
+        }
     }
 
     public String toString() {
