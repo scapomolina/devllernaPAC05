@@ -7,6 +7,6 @@ public class Ingreso extends Dinero {
         super.description=description;
     }
     public String toString(){
-       return  super.description + ": " + super.dinero;
+        return  "Descripción del ingreso: "+ super.description + " Cantidad: " + super.dinero;
     }
 }

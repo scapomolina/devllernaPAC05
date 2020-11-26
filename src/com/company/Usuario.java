@@ -56,7 +56,7 @@ public class Usuario {
     }
 
     public String toString() {
-        return null;
+        return "Nombre: "+ getNombre() + " Edad: " + getEdad() + " DNI: " + getDNI();
     }
 
 }
